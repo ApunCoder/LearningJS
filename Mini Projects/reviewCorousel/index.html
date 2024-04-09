@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .mainOuter {
+            height: 95vh;
+            width: 95vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid salmon; */
+        }
+        .mainInner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f1f5f8;
+            /* border: 2px solid slateblue; */
+        }
+        .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .headingText {
+            color: #0f2a41;
+            margin: 5px ;
+        }
+        .underline {
+            border: 3px solid #49a6ea;
+            border-radius: 2px;
+        }
+        .review {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* border: 2px solid rgb(31, 239, 207); */
+            padding: 4px;
+            line-height: 1.5rem;
+            width: 60%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgb(98, 97, 97);
+        }
+        .sideArrows>button {
+            border: none;
+            background-color: #ffffff;
+            margin: 5px 10px;
+            
+        }
+    </style>
+</head>
+<body onload="showCorousal()">
+    <div class="mainOuter">
+        <div class="mainInner">
+            <div class="heading">
+                <h1 class="headingText">Our Review</h1>
+                <div class="underline" style="width: 30%; ">
+                    
+                </div>
+            </div>
+            <div class="review">
+                <div class="img">
+                    <img 
+                    id="image" src="" alt="user" height="200px" width="200px" style="border-radius: 50%;">
+                </div>
+                <div class="name" style="color: #23445d; font-size: larger;">
+                    <!-- Nikk -->
+                </div>
+                <div class="profession" style="color: #76afea;">
+                    <!-- Web Developer -->
+                </div>
+                <div class="reviewText" style="color: #657f96; text-align: center;">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos cumque molestiae, adipisci iste dolorum id assumenda ad obcaecati. Et, dolores?
+                </div>
+                <div class="sideArrows">
+                    <button id="leftButton" style="color: #8ccbf9;"><i class="fa-solid fa-chevron-left"></i></button> 
+
+                    <button id="rightButton" style="color: #8ccbf9;"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="surpriseButton" >
+                    <button id="surpriseButton" style="color: #8ccbf9;">Surprise</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let array = [
+            {
+                name: 'Nikk',
+                desig: 'Web Developer',
+                review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos cumque molestiae, adipisci iste dolorum id assumenda ad obcaecati. Et, dolores?',
+                img: 'https://www.bing.com/th?id=OIP.srNFFzORAaERcWvhwgPzVAHaHa&pid=3.1&cb=&w=300&h=300&p=0'
+            },
+            {
+                name: '1',
+                desig: 'Soft Developer',
+                review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos cumque molestiae, adipisci iste dolorum id assumenda ad obcaecati. Et, dolores?',
+                img: 'https://th.bing.com/th/id/OIP.WpnGIPj1DKAGo-CP64znTwHaHa?rs=1&pid=ImgDetMain'
+            },
+            {
+                name: '2',
+                desig: 'Web Developer',
+                review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos cumque molestiae, adipisci iste dolorum id assumenda ad obcaecati. Et, dolores?',
+                img: 'https://th.bing.com/th/id/OIP.Gfp0lwE6h7139625a-r3aAHaHa?rs=1&pid=ImgDetMain'
+            },
+            {
+                name: '3',
+                desig: 'Web Developer',
+                review: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos cumque molestiae, adipisci iste dolorum id assumenda ad obcaecati. Et, dolores?',
+                img: 'https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0'
+            }
+        ]
+
+        let leftButton = document.getElementById('leftButton');
+        let rightButton = document.getElementById('rightButton');
+
+        let reviewNum = 0;
+        
+        function showCorousal(){
+            let image = document.getElementById('image');
+            let name = document.getElementsByClassName('name');
+            let profession = document.getElementsByClassName('profession');
+            let reviewText = document.getElementsByClassName('reviewText');
+
+            image.src = `${array[reviewNum].img}`
+            name[0].innerHTML = `${array[reviewNum].name}`
+            profession[0].innerHTML = `${array[reviewNum].desig}`
+            reviewText[0].innerHTML = `${array[reviewNum].review}`
+
+        }
+
+        leftButton.addEventListener('click', () => {
+            if (reviewNum == 0) {
+                reviewNum = 3;
+            }else if(reviewNum < 4){
+                reviewNum--;
+            }
+            showCorousal();
+        });
+
+        rightButton.addEventListener('click', () => {
+            if (reviewNum == 3){
+                reviewNum = 0;
+            }else if (reviewNum >= 0){
+                reviewNum++;
+            }
+            showCorousal();
+        });
+
+        document.getElementById('surpriseButton')
+        .addEventListener('click', () => {
+            randomNum = Math.floor(Math.random() * 4);
+            console.log(randomNum);
+            reviewNum = randomNum;
+            showCorousal()
+        });
+    </script>
+</body>
+</html>

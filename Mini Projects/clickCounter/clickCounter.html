@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <h2 class="value">0</h2>
+    <div class="button">
+        <button class="buttons" onclick="decFunc()">Decrease</button>
+        <button class="buttons" onclick="resetFunc()">Reset</button>
+        <button class="buttons" onclick="incFunc()">Increase</button>
+    </div>
+    <script>
+        let value = document.getElementsByClassName('value');
+        function decFunc(){
+            value[0].innerHTML = parseInt(document.getElementsByClassName('value')[0].innerHTML) - 1;
+        }
+        function resetFunc(){
+            value[0].innerHTML = 0;
+        }
+        function incFunc(){
+            value[0].innerHTML = parseInt(document.getElementsByClassName('value')[0].innerHTML) + 1;
+        }
+    </script>
+</body>
+</html>
